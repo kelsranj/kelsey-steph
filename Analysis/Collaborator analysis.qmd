@@ -24,3 +24,20 @@ You can add options to executable code like this
 ```
 
 The `echo: false` option disables the printing of code (only output is displayed).
+
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+
+```{r}
+lobster_traps <- read_csv("data/Lobster_Trap_Counts_All_Years_20210519.csv")
+```
+```{r}
+lobster_traps <- read_csv("../data/Lobster_Trap_Counts_All_Years_20210519.csv")
+```
+```{r}
+lobster_traps <- lobster_traps %>% 
+    mutate(TRAPS = na_if(TRAPS, -99999))
+```
+
